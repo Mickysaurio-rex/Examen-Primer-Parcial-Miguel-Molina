@@ -1,13 +1,14 @@
-package ejercicio2;
+package ejercicio3;
+
+import ejercicio2.ReservarVueloService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class ReservarVuelo {
-
+public class ReservarVueloStatic {
     private ReservarVueloService service;
-    public ReservarVuelo(){
+    public ReservarVueloStatic(){
         service = new ReservarVueloService();
     }
 
