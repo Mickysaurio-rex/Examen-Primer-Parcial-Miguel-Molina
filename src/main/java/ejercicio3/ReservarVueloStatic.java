@@ -7,18 +7,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ReservarVueloStatic {
-    private ReservarVueloService service;
+    private ReservarVueloServiceStatic serviceStatic;
     public ReservarVueloStatic(){
-        service = new ReservarVueloService();
+        serviceStatic = new ReservarVueloServiceStatic();
     }
 
-    public void setService(ReservarVueloService service){
-        this.service = service;
+    public ReservarVueloStatic(ReservarVueloServiceStatic serviceStatic){
+        this.serviceStatic = serviceStatic;
     }
     public String reservarVuelo(String destino, int cantidad, int dia, int mes, int anio){
-        boolean siHayPasajes = service.existenPasajes(destino,cantidad);
+        boolean siHayPasajes = serviceStatic.existenPasajes(destino,cantidad);
         if(siHayPasajes){
-            String diaNombre = service.getDay(dia,mes,anio);
+            String diaNombre = serviceStatic.getDay(dia,mes,anio);
             LocalDate fecha = LocalDate.of(anio, mes, dia);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.getDefault());
             String nombreFecha = fecha.format(formatter);
